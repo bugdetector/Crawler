@@ -13,8 +13,8 @@ soup = BeautifulSoup(requests.get(url).content)
 categories = soup.findAll("li",{"class":"category"})#menüdeki kategoriler
 if (os.path.exists(root)==False):
     os.mkdir(root)
-categoryHeaders = [[13],[11]]#kadın -> tesettür ok 2, elbise ok 3, mont ok 4, gömlek ok 13, tulum ok 15, triko ok 18
-for i in [1]: #kadın ok 0, erkek          #erkek -> triko ok 8, mont ok 9, gömlek ok 10, pantolon
+categoryHeaders = [[2,3,4,13,15,18],[8,9,10,11]]#kadın -> tesettür 2, elbise 3, mont 4, gömlek 13, tulum 15, triko 18
+for i in [0,1]: #kadın 0, erkek          #erkek -> triko 8, mont 9, gömlek 10, pantolon 11
     subcategories = categories[i].find("ul",{"class":"headermenu-categories"}).findAll("a")#alt kategoriler
     sex = categories[i].find("a",{"class":" "}).text
 
